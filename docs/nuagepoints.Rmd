@@ -35,6 +35,7 @@ chart(urchin, formula = height ~ weight ) +
    geom_point(na.rm = TRUE)
 ```
 
+
 > Réalisez le graphique de la hauteur en fonction de la masse des oursins en utilisant une transformation `log()` pour les 2 variables. Vous avez déjà réalisé ce graphique dans votre script R. Commentez ensuite votre graphique en maximum 5 phrases.
 
 ```{r graphe2}
