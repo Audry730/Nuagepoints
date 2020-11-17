@@ -31,10 +31,10 @@ urchin_10
 > Réalisez le graphique de la hauteur en fonction de la masse des oursins. Vous avez déjà réalisé ce graphique dans votre script R. Commentez ensuite votre graphique en maximum 5 phrases.
 
 ```{r graphe1}
-chart(urchin, formula = height ~ weight ) +
+ggplot(data = urchin, mapping = aes(x = weight, y = height)) +
    geom_point(na.rm = TRUE)
 ```
-
+On peut remarquer sur ce graphique que peu d'oursins dépassent les 25 mm pour une masse excédent rarement les 50g. Mais cela ne nous renseigne pas sur les différences entre oursins en milieu naturel et élevé en culture.
 
 > Réalisez le graphique de la hauteur en fonction de la masse des oursins en utilisant une transformation `log()` pour les 2 variables. Vous avez déjà réalisé ce graphique dans votre script R. Commentez ensuite votre graphique en maximum 5 phrases.
 
@@ -42,6 +42,7 @@ chart(urchin, formula = height ~ weight ) +
 chart(urchin, formula = log(height) ~ log(weight)) +
    geom_point(na.rm = TRUE)
 ```
+Le logarithme des données montre que beaucoup d'oursins on un logarithme de la hauteur et de la masse compris entre 2,5 et 3. Mais cela ne nous renseinge toujours pas sur les différences entre oursins en liberté et en culture.
 
 > Réalisez le graphique des parties solides en fonction de la masse immergée des oursins en utilisant de la couleur pour l'origine. Commentez ensuite votre graphique en maximum 5 phrases.
 
@@ -49,6 +50,7 @@ chart(urchin, formula = log(height) ~ log(weight)) +
 chart(urchin, formula = solid_parts ~ buoyant_weight %col=% origin) +
    geom_point(na.rm = TRUE)
 ```
+Ici l'information à retenir est que le rapport entre masse des parties solides et masse immergée est plus grand pour les oursins en ferme que pour les oursins en liberté. Cela signifie que les oursins en ferme ont moins de partie solide par rapport a la masse totale immergée.
 
 > Représentez la masse de la lanterne en fonction de la masse du squelette en ajoutant de la couleur pour l'origine et en modifiant la forme des points. Commentez ensuite votre graphique en maximum 5 phrases.
 
@@ -56,6 +58,7 @@ chart(urchin, formula = solid_parts ~ buoyant_weight %col=% origin) +
 chart(urchin, formula = weight ~ skeleton %col=% origin %shape=% origin) +
    geom_point(na.rm = TRUE)
 ```
+Ce graphique confirme le point précédent en montrant que les oursins en milieu naturel vont développer plus de squelette que ceux en ferme. C'est logique car dans la nature ils sont soumis a plus de contraintes qu' en ferme.
 
 > C'est maintenant à vous de jouez. A partir des `19 variables` du jeu de données `urchin`, réalisez et commentez deux nouveaux graphiques en nuage de points que vous jugez pertinants. Utilisez une variable facteur dans au moins un des deux graphiques.  
 
@@ -63,9 +66,11 @@ chart(urchin, formula = weight ~ skeleton %col=% origin %shape=% origin) +
 chart(urchin, formula = height ~ solid_parts %shape=% sex %col=% origin) +
    geom_point(na.rm = TRUE)
 ```
+Ce graphique permet de montrer que plus les oursins ont de la partie solide, plus ils sont grands.
 
 ```{r graphe6}
 chart(urchin, formula = diameter1 ~ weight %col=% origin) +
    geom_point(na.rm = TRUE)
 ```
+On remarque sur le graphique que le rapport entre diamètre et masse des oursins augmente exponentiellement et se stabilise aux alentours de 50mm de diamètre et à une masse de 50g.
 
